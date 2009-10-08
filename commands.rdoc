@@ -1,0 +1,25 @@
+=Buildr Command
+
+	buildr [options] [tasks] [name=value]
+
+	# perform a clean before packaging
+	buildr clean package
+
+	# skip the tests
+	buildr test=no
+
+	# get infos about the projects
+	buildr help:projects
+
+	# show all build-tasks
+	buildr -T
+
+	# show all dependencies
+	buildr -P
+
+	# run buildr in trace-mode, which is perfect for debugging
+	buildr -t
+
+=Environment=
+
+	export JAVA_OPTS='-Xms1g -Xmx1g'
