@@ -1,19 +1,25 @@
 require 'buildr'
- 
+require "buildr/openjpa"
+
+include Buildr::OpenJPA
+
 VERSION_NUMBER = '1.0'
- 
+
+# define a single dependencies
 AXIS2 = 'org.apache.axis2:axis2:jar:1.2'
-AXIOM = group('axiom-api', 'axiom-impl', 'axiom-dom',
-  :under=>'org.apache.ws.commons.axiom', :version=>'1.2.4')
+# define a group of dependencies
+AXIOM = group('axiom-api', 'axiom-impl', 'axiom-dom', :under=>'org.apache.ws.commons.axiom', :version=>'1.2.4')
+# and mix them together
 AXIS_OF_WS = [AXIOM, AXIS2]
-OPENJPA = ['org.apache.openjpa:openjpa:jar:1.2.0',
-  'net.sourceforge.serp:serp:jar:1.12.0']
- 
+OPENJPA = ['org.apache.openjpa:openjpa:jar:1.2.0', 'net.sourceforge.serp:serp:jar:1.12.0']
+
+# use ibiblio as the artifact repository
 repositories.remote << 'http://www.ibiblio.org/maven2/'
- 
+
 desc 'Code. Build. ??? Profit!'
 define 'killer-app' do
- 
+
+  # set up project specific information
   project.version = VERSION_NUMBER
   project.group = 'acme'
   manifest['Copyright'] = 'Acme Inc (C) 2007'
@@ -21,23 +27,38 @@ define 'killer-app' do
 
   desc 'Abstract classes and interfaces'
   define 'teh-api' do
+    # create a jar artifact
     package :jar
   end
 
   desc 'All those implementation details'
   define 'teh-impl' do
+    # add axis and open-jpa to compile classpath
     compile.with AXIS_OF_WS, OPENJPA
+    # run bytecode enhancer after compilation
     compile { open_jpa_enhance }
+    # create a jar
     package :jar
   end
 
   desc 'What our users see'
   define 'la-web' do
+    # add the axis-dependencies to the test classpath
     test.with AXIS_OF_WS
+    # create a war with the dependencies of side-projects
     package(:war).with :libs=>projects('teh-api', 'teh-impl')
   end
 
+  # create javadoc for all projects ...
   javadoc projects
+  # ... and create a javadoc.zip 
   package :javadoc
+
+  # have a look into the project-structure
+  puts projects.inspect
+  puts project('killer-app').projects.inspect
+  puts project('teh-api')
+  puts project('killer-app:teh-api').inspect
+  puts project('killer-app').project('teh-api').inspect
 
 end
