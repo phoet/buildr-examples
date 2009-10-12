@@ -16,6 +16,13 @@ Install JRuby via MacPorts:
 
 	$ sudo port install jruby
 
+==Nailgun
+
+Nailgun is shipped with latest versions of JRuby, but needs to be compiled on the user-machine. 
+Here is a nice example: http://blog.headius.com/2009/05/jruby-nailgun-support-in-130.html
+
+	$ cd tool/nailgun/ ; make ; cd -
+
 ==Gems
 
 Install buildr and ivy4r using jgem:
