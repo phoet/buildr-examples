@@ -1,0 +1,35 @@
+require 'buildr/scala'
+require 'buildr/groovy'
+# configure a different groovy-version
+Buildr::Groovy::Groovyc::REQUIRES.groovy = '1.6.0'
+
+repositories.remote << "http://www.ibiblio.org/maven2/"
+
+define "compiler" do
+
+  # define the project-version
+  project.version = '1.0.0'
+
+  # define project-specific options
+  compile.options.target = '1.5'
+  compile.options.lint = 'all'
+  # compile.using :target=>'1.5', :lint=>'all' => does the same in one line
+
+  # currently fails with Error instantiating 'groovyc' task: java.lang.NoSuchMethodError: org.objectweb.asm.ClassWriter.<init>(Z)V
+  # define "groovyproject" do
+  #   puts compile.dependencies
+  #   compile.using(:groovyc)
+  #   package(:jar)
+  # end
+
+  define "javaproject" do
+    compile.from(_(:src, :main, :java)).with('org.apache.axis2:axis2:jar:1.2').into(_(:target, :classes)).using(:target=>'1.6')
+    package(:jar)
+  end
+
+  define "scalaproject" do
+    compile.using(:scalac)
+    package(:jar)
+  end
+
+end

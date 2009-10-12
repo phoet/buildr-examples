@@ -1,7 +1,12 @@
 # 1. define some dependencies ...
 AXIOM = group('axiom-api', 'axiom-impl', 'axiom-dom', :under=>'org.apache.ws.commons.axiom', :version=>'1.2.4')
 
+repositories.remote << "http://www.ibiblio.org/maven2/"
+
 define 'foo-bar' do
+  
+  # define the project-version
+  project.version = '1.0.0'
   
   define 'bar' do
     # 3. ... and reuse them via other project
