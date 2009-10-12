@@ -1,0 +1,19 @@
+# 1. define some dependencies ...
+AXIOM = group('axiom-api', 'axiom-impl', 'axiom-dom', :under=>'org.apache.ws.commons.axiom', :version=>'1.2.4')
+
+define 'foo-bar' do
+  
+  define 'bar' do
+    # 3. ... and reuse them via other project
+    # buildr will figure out the right order of projects
+    compile.with project('foo').compile.dependencies
+  end
+
+  define 'foo' do
+    # 2. ... and use them for compile classpath
+    compile.with AXIOM
+    
+    # 4. this would trigger a circular dependency (Circular dependency detected)
+    # compile.with project('bar')
+  end
+end

@@ -1,7 +1,4 @@
-require 'buildr'
 require "buildr/openjpa"
-
-include Buildr::OpenJPA
 
 VERSION_NUMBER = '1.0'
 
@@ -36,7 +33,7 @@ define 'killer-app' do
     # add axis and open-jpa to compile classpath
     compile.with AXIS_OF_WS, OPENJPA
     # run bytecode enhancer after compilation
-    compile { open_jpa_enhance }
+    # compile { open_jpa_enhance } => this is currently broken, and fails with a java.util.MissingResourceException
     # create a jar
     package :jar
   end

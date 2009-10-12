@@ -1,0 +1,12 @@
+define 'task' do
+  # define a custom task
+  task('do-this') do |task|
+    puts "you can define your own tasks like #{task}"    
+  end  
+end
+
+# define the custom task as a local task
+# you can now call the do-this task via 'buildr do-this'
+Project.local_task('do-this') do |name| 
+  puts "executing the localtask on #{name}"
+end
