@@ -15,20 +15,25 @@ define "compiler" do
   compile.options.lint = 'all'
   # compile.using :target=>'1.5', :lint=>'all' => does the same in one line
 
-  # currently fails with Error instantiating 'groovyc' task: java.lang.NoSuchMethodError: org.objectweb.asm.ClassWriter.<init>(Z)V
-  # define "groovyproject" do
-  #   puts compile.dependencies
-  #   compile.using(:groovyc)
-  #   package(:jar)
-  # end
-
-  define "javaproject" do
-    compile.from(_(:src, :main, :java)).with('org.apache.axis2:axis2:jar:1.2').into(_(:target, :classes)).using(:target=>'1.6')
+  # define a groovy subproject
+  define "groovyproject" do
+    compile.using(:groovyc) # you dont have to define the compiler, buildr will look for the .groovy extension
     package(:jar)
   end
 
+  # define a java subproject
+  define "javaproject" do
+    compile.from(_(:src, :main, :java)) # compile from src/main/java
+    compile.with('org.apache.axis2:axis2:jar:1.2')  # use axis as dependency
+    compile.into(_(:target, :classes))  # compile into target/classes
+    compile.using(:target=>'1.6') # compile using Java 6 compiler
+    # you could have chained all calls to compile, because the methods all return the task they configure
+    package(:jar)
+  end
+
+  # define a scala subproject
   define "scalaproject" do
-    compile.using(:scalac)
+    compile.using(:scalac) # this is optional
     package(:jar)
   end
 

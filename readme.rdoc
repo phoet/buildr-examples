@@ -10,18 +10,22 @@ Download from http://developer.apple.com/tools/xcode/ and make sure to install t
 
 Download from http://www.macports.org/ and install the package.
 
-==JRuby
+==JRuby (If MacPort-JRuby-Version >= 1.4.0RC1)
 
 Install JRuby via MacPorts:
 
 	$ sudo port install jruby
+	
+==JRuby (otherwise)
+
+Uninstall the MacPorts-Version if you got an old JRuby Version and try to manually install JRuby according to http://jruby.org/getting-started .
+You have got to add the bin-directory to your PATH environment Variable. On OS X you can configure this in your ~/.profile File.
 
 ==Nailgun
 
 Nailgun is shipped with latest versions of JRuby, but needs to be compiled on the user-machine. 
 Here is a nice example: http://blog.headius.com/2009/05/jruby-nailgun-support-in-130.html
-
-	$ cd tool/nailgun/ ; make ; cd -
+Or follow the Instructions in the jruby/nailgun/README.txt
 
 ==Gems
 
