@@ -18,3 +18,6 @@ buildr killer-app:teh-impl:test
 
 # package only la-web
 buildr killer-app:la-web:package
+
+# list all projects
+buildr help:projects
