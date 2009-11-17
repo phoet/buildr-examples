@@ -67,4 +67,7 @@ define 'killer-app' do
 
   # Relative to the teh-impl project
   puts project('teh-impl')._('src/main/java')
+  
+  # shortcut for resolving the path of src
+  puts file('src')
 end
