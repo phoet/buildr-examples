@@ -17,7 +17,7 @@ define "compiler" do
 
   # define a groovy subproject
   define "groovyproject" do
-    compile.using(:groovyc) # you dont have to define the compiler, buildr will look for the .groovy extension
+    compile.using(:groovyc) # you dont have to define the compiler, buildr will look for the .groovy extension in src/main/groovy
     package(:jar)
   end
 
@@ -33,7 +33,7 @@ define "compiler" do
 
   # define a scala subproject
   define "scalaproject" do
-    compile.using(:scalac) # this is optional
+    compile.using(:scalac) # you dont have to define the compiler, buildr will look for the .scala extension in src/main/scala
     package(:jar)
   end
 
