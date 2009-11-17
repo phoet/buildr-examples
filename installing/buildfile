@@ -1,0 +1,7 @@
+repositories.remote << "http://www.ibiblio.org/maven2/"
+
+define "compiler" do
+  # define the project-version
+  project.version = '1.0.0'
+  info "environment: #{Buildr.environment}"
+end
