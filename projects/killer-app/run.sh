@@ -21,3 +21,6 @@ buildr killer-app:la-web:package
 
 # list all projects
 buildr help:projects
+
+# list all tasks
+buildr help:tasks
