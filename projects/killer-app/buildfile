@@ -61,6 +61,9 @@ define 'killer-app' do
   # look into resolving paths
   # Relative to the current project
   puts path_to('src', 'main', 'java')
+  
+  # the same using symbols
+  puts path_to(:src, :main, :java)
 
   # Exactly the same thing
   puts _('src/main/java')
