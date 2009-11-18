@@ -40,6 +40,12 @@ define 'killer-app' do
 
   desc 'What our users see'
   define 'la-web' do
+    # add dependencies to compilation
+    compile.with 'org.apache.axis2:axis2:jar:1.2',
+      'org.apache.derby:derby:jar:10.1.2.1', 
+        #this can also be the created artifacts of projects
+        projects('teh-api', 'teh-impl')
+    
     # add the axis-dependencies to the test classpath
     test.with AXIS_OF_WS
     # create a war with the dependencies of side-projects
