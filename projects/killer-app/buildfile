@@ -57,5 +57,20 @@ define 'killer-app' do
   puts project('teh-api')
   puts project('killer-app:teh-api').inspect
   puts project('killer-app').project('teh-api').inspect
+  
+  # look into resolving paths
+  # Relative to the current project
+  puts path_to('src', 'main', 'java')
+  
+  # the same using symbols
+  puts path_to(:src, :main, :java)
 
+  # Exactly the same thing
+  puts _('src/main/java')
+
+  # Relative to the teh-impl project
+  puts project('teh-impl')._('src/main/java')
+  
+  # shortcut for resolving the path of src
+  puts file('src')
 end

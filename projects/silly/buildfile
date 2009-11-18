@@ -1,0 +1,15 @@
+define 'silly', :version=>'1.0' do
+  project.group = 'acme'
+  
+  puts 'Running buildr'
+
+  # extending the build-task
+  build do
+    puts 'Building silly'
+  end
+
+end
+
+# print out project-settings
+puts project('silly').version
+puts project('silly').group
