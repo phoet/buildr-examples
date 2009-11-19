@@ -1,0 +1,2 @@
+# just compile
+buildr compile
