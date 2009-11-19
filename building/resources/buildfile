@@ -1,0 +1,8 @@
+repositories.remote << "http://www.ibiblio.org/maven2/"
+
+define "chaining", :version=>"1.0.0" do
+  # filter the resources with defined params
+  resources.filter.using 'date'=>Time.new
+  filter('src/main/ant-style').into('target/resources').
+    using(:ant, 'version'=>version, 'created'=>Time.now).run
+end

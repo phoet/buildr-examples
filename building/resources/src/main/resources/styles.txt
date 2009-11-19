@@ -1,0 +1,3 @@
+:ant	Map from key to value.
+:maven	Map from ${key} to value (default).
+:ruby	Map from #{key} to value.
