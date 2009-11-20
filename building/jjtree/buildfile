@@ -1,0 +1,10 @@
+require 'buildr/javacc'
+
+repositories.remote << "http://www.ibiblio.org/maven2/"
+
+define "jjtree", :version=>"1.0.0" do
+  # use jjtree for compilation 
+  # --> disabled, due to a missing example...
+  # jjtree = jjtree(_('src/main/jjtree'), :in_package=>'com.acme')
+  # compile.from javacc(jjtree, :in_package=>'com.acme'), jjtree
+end

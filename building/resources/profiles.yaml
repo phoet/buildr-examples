@@ -1,0 +1,12 @@
+filter: &dev
+  version: development
+  copyright: Acme Inc (C) 2009
+  
+filter: &tes
+  version: test
+  copyright: Acme Inc (C) 2009  
+  
+development:
+  filter: *dev
+test:
+  filter: *tes

@@ -1,0 +1,8 @@
+repositories.remote << "http://www.ibiblio.org/maven2/"
+
+define "apt", :version=>"1.0.0" do
+  compile.using :javac
+  # add apt-generated sources to compilation
+  # --> disabled, because i dont have a working apt-example
+  #compile.from apt
+end

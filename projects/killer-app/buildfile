@@ -33,13 +33,19 @@ define 'killer-app' do
     # add axis and open-jpa to compile classpath
     compile.with AXIS_OF_WS, OPENJPA
     # run bytecode enhancer after compilation
-    # compile { open_jpa_enhance } => this is currently broken, and fails with a java.util.MissingResourceException
+    compile { open_jpa_enhance }
     # create a jar
     package :jar
   end
 
   desc 'What our users see'
   define 'la-web' do
+    # add dependencies to compilation
+    compile.with 'org.apache.axis2:axis2:jar:1.2',
+      'org.apache.derby:derby:jar:10.1.2.1', 
+        #this can also be the created artifacts of projects
+        projects('teh-api', 'teh-impl')
+    
     # add the axis-dependencies to the test classpath
     test.with AXIS_OF_WS
     # create a war with the dependencies of side-projects
