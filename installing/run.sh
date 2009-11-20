@@ -11,3 +11,6 @@ buildr --version
 echo "-T/--tasks [PATTERN] Display the tasks (matching optional PATTERN) with descriptions, then exit."
 buildr -T
 buildr --tasks
+echo "-D, --describe [PATTERN] Describe the tasks (matching optional PATTERN), then exit."
+buildr -D
+buildr --describe
