@@ -1,8 +1,23 @@
 repositories.remote << "http://www.ibiblio.org/maven2/"
 
 define "chaining", :version=>"1.0.0" do
-  # filter the resources with defined params
+  # filter the resources with defined param and filters defined in profiles.yaml
   resources.filter.using 'date'=>Time.new
-  filter('src/main/ant-style').into('target/resources').
-    using(:ant, 'version'=>version, 'created'=>Time.now).run
+  # this should force the expected behavior, see https://issues.apache.org/jira/browse/BUILDR-349
+  resources.filter.using( { 'date' => Time.new }.merge( Buildr.settings.profile['filter'] ))
+  
+  # use a custom filter using ant-style properties like @key@
+  run_filter(:ant, :ant)
+  # use a custom filter using erb-style properties like <%=key=>
+  run_filter(:erb, :erb)
+  # use a custom filter using maven-style properties like ${key}
+  run_filter(:maven, :maven)
+  # use a custom filter using ruby-style properties like #{key}
+  run_filter(:ruby, :ruby)
+  # use a custom filter using a regex to match property like =key=
+  run_filter(:regex, /=(.*?)=/)
+end
+
+def run_filter(name, type)
+  filter('src/main/property-style').include("#{name}.txt").into('target/resources').using(type, 'version'=>version, 'created'=>Time.now).run
 end
