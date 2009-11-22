@@ -1,7 +1,7 @@
-# compile and disable debug ...
-# ... when calling buildr
+echo "compile and disable debug ..."
+echo "... when calling buildr with debug=off"
 buildr compile debug=off
 
-# ... once until we change the variable
+echo "... once until we change the variable with sysproperty"
 export DEBUG=off
 buildr compile

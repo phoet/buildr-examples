@@ -1,2 +1,2 @@
-# just build
+echo "just build to use apt"
 buildr

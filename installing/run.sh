@@ -1,4 +1,4 @@
-# process some buildr options
+echo "process some buildr options"
 echo "-f/--buildfile [file] Specify the buildfile."
 buildr -f buildfile
 buildr --buildfile buildfile

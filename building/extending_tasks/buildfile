@@ -1,0 +1,24 @@
+repositories.remote << "http://www.ibiblio.org/maven2/"
+
+define "extending_tasks", :version=>"1.0.0" do
+  
+  # extend the build task, the taks itself is yielded for the block
+  build do |build_task|
+    info "extending task #{build_task.inspect}"
+    mkdir _('staged')
+    touch _('staged/file.txt')
+  end
+
+  # extend the compile task for post-compilation work, the taks itself is yielded for the block
+  compile do |compile_task|
+    info "extending task #{compile_task.inspect}"
+    compile_task.sources.each {|s| info "source: #{s.inspect}"}
+  end
+
+  # extending the clean task to remove additional stuff, the taks itself is yielded for the block
+  clean do |clean_task|
+    info "extending task #{clean_task.inspect}"
+    rm_rf _('staged') 
+  end
+
+end

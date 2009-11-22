@@ -1,2 +1,2 @@
-# just build the project
+echo "just build the silly project"
 buildr 

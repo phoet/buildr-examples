@@ -1,5 +1,5 @@
-# run custom task defined in project
+echo "run custom task defined in project"
 buildr task:do-this
 
-# run custom task defined as local-task
+echo "run custom task defined as local-task"
 buildr do-this

@@ -1,2 +1,2 @@
-# compile killer-app and all its sub-projects
+echo "compile foo-bar with subprojects"
 buildr clean compile
