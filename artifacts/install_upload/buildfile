@@ -2,16 +2,28 @@ repositories.remote << "http://www.ibiblio.org/maven2/"
 repositories.release_to = "file:///~/.m2/repository/"
 
 define "install_upload", :version=>"1.0.0" do
+  # some remote url
   url = 'http://github.com/phoet/buildr-examples/raw/master/artifacts/install_upload/app.zip'
+  # download the artifact
   app_zip = download('target/app.zip'=>url)
+  # unzip the artifact to specified location
   bean_jar = file('target/app/bean.jar'=>unzip('target/app'=>app_zip))
+  # specify the artifact
   bean = artifact('example.com:beans:jar:1.0').from(bean_jar)
+  # use the artifact for compilation
   compile.with bean
+  # install the artifact locally
   install bean
+  # upload the artifact to release server (wich is local too in this example)
   upload bean
-  
+
   desc 'task for installing an artifact'
   task 'install_directly' do 
     install(bean).invoke
+  end
+
+  desc 'task for uploading an artifact'
+  task 'uploading_directly' do 
+    upload(bean).invoke
   end
 end
