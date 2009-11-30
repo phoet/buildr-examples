@@ -1,0 +1,65 @@
+repositories.remote << "http://www.ibiblio.org/maven2/"
+
+# shared artifacts
+require '../shared/artifacts'
+
+# just an artifact version
+AXIS_VERSION = '1.2'
+# a single artifact
+AXIS2 = 'org.apache.axis2:axis2:jar:1.2'
+# as a hash
+AXIS = { :group=>'org.apache.axis2', :id=>'axis2', :version=>'1.2' }
+# a group of aftifacts
+# use Buildr::group() in define
+AXIOM  = group('axiom-api', 'axiom-impl', 'axiom-dom', :under=>'org.apache.ws.commons.axiom', :version=>'1.2.4')
+# a list of artifacts
+OPENJPA = ['org.apache.openjpa:openjpa:jar:1.2.1', 'net.sourceforge.serp:serp:jar:1.12.0']
+# nest artifacts
+AXIS_OF_WS = [AXIS2, AXIOM]
+# group using a struct
+JAVAX = struct(
+:activation  =>'javax.activation:activation:jar:1.1',
+:persistence =>'javax.persistence:persistence-api:jar:1.0',
+:stream      =>'stax:stax-api:jar:1.0.1'
+)
+
+desc 'proxy-task for setting specific proxy-config'
+task 'proxy' do
+  options.proxy.http = 'http://myproxy:8080'
+  # currently fails with 'stack level too deep'
+  # options.proxy.exclude << '*.mycompany.com'
+  # options.proxy.exclude << 'localhost'
+end
+
+desc 'repo-task for setting local repo-config'
+task 'repo' do
+  # put stuff like this in your buildr.rb in the user-directory
+  # this is actually the default setting
+  repositories.local = '~/.m2/repository'
+end
+
+define "simple", :version=>"1.0.0" do
+
+  # works ...
+  compile.with "org.apache.axis2:axis2:jar:#{AXIS_VERSION}"
+  # ... but this is better
+  compile.with AXIS2
+
+  # use a hash
+  compile.with AXIS
+
+  # use with lists of dependencies ...
+  compile.with AXIS2, AXIOM
+  # ... or mix with arrays
+  compile.with OPENJPA, AXIS_OF_WS
+
+  # struct shortcut
+  compile.with JAVAX.persistence, OPENJPA
+
+  # struct from shared
+  compile.with SHARED_LIB.stream, SHARED_LIB.activation
+
+  # artifacts can be treated as hashes
+  puts "first artifact: #{compile.dependencies.first.to_hash.inspect}"
+
+end
