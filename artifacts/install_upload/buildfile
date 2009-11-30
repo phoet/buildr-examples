@@ -1,0 +1,5 @@
+repositories.remote << "http://www.ibiblio.org/maven2/"
+
+define "install_upload", :version=>"1.0.0" do
+
+end
