@@ -1,5 +1,6 @@
 repositories.remote << "http://www.ibiblio.org/maven2/"
 
 define "install_upload", :version=>"1.0.0" do
-
+  app_zip = download('target/app.zip'=>url)
+  bean_jar = file('target/app/bean.jar'=>unzip('target/app'=>app_zip))
 end
