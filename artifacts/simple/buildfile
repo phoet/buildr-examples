@@ -22,6 +22,8 @@ JAVAX = struct(
 :persistence =>'javax.persistence:persistence-api:jar:1.0',
 :stream      =>'stax:stax-api:jar:1.0.1'
 )
+# external artifact
+DOJO = '0.2.2'
 
 desc 'proxy-task for setting specific proxy-config'
 task 'proxy' do
@@ -61,5 +63,13 @@ define "simple", :version=>"1.0.0" do
 
   # artifacts can be treated as hashes
   puts "first artifact: #{compile.dependencies.first.to_hash.inspect}"
+  
+  # invoke download of artifacts directly
+  artifact('org.apache.openjpa:openjpa:jar:1.2.1').invoke
+  artifacts(OPENJPA).each(&:invoke)
+  
+  # download artifact from given url
+  url = "http://download.dojotoolkit.org/release-#{DOJO}/dojo-#{DOJO}-widget.zip"
+  download(artifact("dojo:dojo:zip:widget:#{DOJO}")=>url)
 
 end
