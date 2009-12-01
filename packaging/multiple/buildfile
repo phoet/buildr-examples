@@ -1,6 +1,6 @@
 repositories.remote << "http://www.ibiblio.org/maven2/"
 
-define "simple", :version=>"1.0.0" do
+define "multiple", :version=>"1.0.0" do
   # you can create multiple packages from one project
 
   # create a jar
@@ -17,10 +17,10 @@ define "simple", :version=>"1.0.0" do
   package :sources
 
   # create a zip
-  package :zip, :file=>_('target/simple.zip')
+  package :zip, :file=>_('target/multiple.zip')
 
   # let buildr interfer a type from package-extension (.jar)
-  package :file=>_('target/simple_with_extension.jar')
+  package :file=>_('target/multiple_with_extension.jar')
 
   # override the project definition for an artifact (you cant define a file in this case!)
   # other id
