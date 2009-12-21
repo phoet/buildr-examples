@@ -9,6 +9,7 @@ AXIOM = group('axiom-api', 'axiom-impl', 'axiom-dom', :under=>'org.apache.ws.com
 # and mix them together
 AXIS_OF_WS = [AXIOM, AXIS2]
 OPENJPA = ['org.apache.openjpa:openjpa:jar:1.2.0', 'net.sourceforge.serp:serp:jar:1.12.0']
+HIBERNATE = 'hibernate:hibernate-entitymanager:jar:3.1beta1'
 
 # use ibiblio as the artifact repository
 repositories.remote << 'http://www.ibiblio.org/maven2/'
@@ -31,7 +32,7 @@ define 'killer-app' do
   desc 'All those implementation details'
   define 'teh-impl' do
     # add axis and open-jpa to compile classpath
-    compile.with AXIS_OF_WS, OPENJPA
+    compile.with AXIS_OF_WS, OPENJPA, HIBERNATE
     # run bytecode enhancer after compilation
     compile { open_jpa_enhance }
     # create a jar
