@@ -1,0 +1,10 @@
+repositories.remote << "http://www.ibiblio.org/maven2/"
+
+define "include_exclude", :version=>"1.0.0" do
+  package(:zip).include _(:src, :main, :java, '*.java'), 'README'
+  
+  package(:file=>_(:target, 'with_excludes.zip')).
+    include('src/main/resources').
+      exclude('**/*.{clu,ex}') # this does not work
+      # exclude('**/*.ex') # this works
+end

@@ -33,3 +33,7 @@ define "multiple", :version=>"1.0.0" do
   package :zip, :classifier=>'sources'
 
 end
+
+# print some package-information
+puts project('multiple').packages.first
+puts project('multiple').packages.select { |pkg| pkg.type == :zip }.inspect
