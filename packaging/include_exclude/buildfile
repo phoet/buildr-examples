@@ -3,8 +3,45 @@ repositories.remote << "http://www.ibiblio.org/maven2/"
 define "include_exclude", :version=>"1.0.0" do
   package(:zip).include _(:src, :main, :java, '*.java'), 'README'
   
+  # exclude pattern based on extension-name
   package(:file=>_(:target, 'with_excludes.zip')).
     include('src/main/resources').
       exclude('**/*.{clu,ex}') # this does not work
       # exclude('**/*.ex') # this works
+  
+  # include any file with the provided extensions
+  package(:file=>_(:target, 'with_or_pattern.zip')).
+    include('src/main/resources/*.{clu,ex}')
+        
+  # include any extension with the characters e and x
+  package(:file=>_(:target, 'with_characterpattern.zip')).
+    include('src/main/resources/*.[ex]*')
+          
+  # include any extension with 2 characters starting with e
+  package(:file=>_(:target, 'with_any_character.zip')).
+    include('src/main/resources/*.e?')
+  
+  # put included stuff to different path
+  package(:file=>_(:target, 'with_different_path.zip')).
+    include(_(:src, :main, :resources, '*'), :path=>"#{id}-#{version}")
+  
+  # use the path repeatedly using 'tap'
+  package(:file=>_(:target, 'with_tap.zip')).path("#{id}-#{version}").tap do |path|
+    path.include 'src/main/resources/*.*'
+    path.include 'README'
+  end
+  
+  # define the target-name of an include
+  package(:file=>_(:target, 'with_as_filename.zip')).include('README', :as=>'readme.txt')
+  
+  # this selects all files currently available in the include-directory (and sub-directory)
+  package(:file=>_(:target, 'direct_include.zip')).include('target/resources/*')
+  # this selects the same but not at definition-time but at execution-time
+  package(:file=>_(:target, 'lazy_include.zip')).include('target/resources', :as=>'.')
+  
+  # extend the build-task to write some additional file
+  build do
+    write('target/resources/additional.txt', 'content')
+  end
+  
 end
