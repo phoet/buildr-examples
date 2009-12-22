@@ -32,16 +32,29 @@ define "include_exclude", :version=>"1.0.0" do
   end
   
   # define the target-name of an include
-  package(:file=>_(:target, 'with_as_filename.zip')).include('README', :as=>'readme.txt')
+  package(:file=>_(:target, 'with_as_filename.zip')).
+    include('README', :as=>'readme.txt')
   
   # this selects all files currently available in the include-directory (and sub-directory)
-  package(:file=>_(:target, 'direct_include.zip')).include('target/resources/*')
+  package(:file=>_(:target, 'direct_include.zip')).
+    include('target/resources/*')
   # this selects the same but not at definition-time but at execution-time
-  package(:file=>_(:target, 'lazy_include.zip')).include('target/resources', :as=>'.')
+  package(:file=>_(:target, 'lazy_include.zip')).
+    include('target/resources', :as=>'.')
   
   # extend the build-task to write some additional file
   build do
     write('target/resources/additional.txt', 'content')
   end
+
+  # create an empty/cleaned zip
+  package(:file=>_(:target, 'empty.zip')).
+    include(_(:src, :main, :resources, '*')).
+      clean
+      
+  # merge all the zips created yet
+  pkgs = packages.map{|p| "#{p}" }
+  package(:file=>_(:target, 'merged_all.zip')).
+    merge(pkgs)
   
 end
