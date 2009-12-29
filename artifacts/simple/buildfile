@@ -6,7 +6,7 @@ require '../shared/artifacts'
 # just an artifact version
 AXIS_VERSION = '1.2'
 # a single artifact
-AXIS2 = 'org.apache.axis2:axis2:jar:1.2'
+AXIS2 = 'org.apache.tapestry:tapestry-framework:jar:4.1.1'
 # as a hash
 AXIS = { :group=>'org.apache.axis2', :id=>'axis2', :version=>'1.2' }
 # a group of aftifacts
