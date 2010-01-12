@@ -1,0 +1,7 @@
+Build-By: nofail
+Build-Jdk: 1.5.0_13
+Implementation-Title: multiple
+Implementation-Version: 1.0.0
+Manifest-Version: 1.0
+Created-By: phoet
+

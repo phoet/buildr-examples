@@ -1,0 +1,25 @@
+repositories.remote << "http://www.ibiblio.org/maven2/"
+
+define "meta", :version=>"1.0.0" do
+  # set default manifest
+  manifest['Copyright'] = 'Default Inc (C) 2010'
+  # set default includes for meta directory
+  meta_inf << file('DISCLAIMER') << file('NOTICE')
+  
+  package(:jar, :file=>_(:target, "manifest_default.jar"))
+  # merge default with hash
+  package(:jar, :file=>_(:target, "manifest_merge.jar")).with :manifest=>manifest.merge('Main-Class'=>'com.acme.Main')
+  
+  # add more to meta directory
+  package(:jar, :file=>_(:target, "meta_additional.jar")).with :meta_inf=>file('ADDITIONAL')
+  
+  # create from file
+  package(:jar, :file=>_(:target, "manifest_file.jar")).with :manifest=>_('src/main/MANIFEST.MF')
+  # create from hash
+  package(:jar, :file=>_(:target, "manifest_hash.jar")).with :manifest=>{ 'Copyright'=>'Hash Inc (C) 2010' }
+  # create from proc
+  package(:jar, :file=>_(:target, "manifest_proc.jar")).with :manifest=>Proc.new{|n|{ 'Copyright'=>'Proc Inc (C) 2010' }}
+  
+  # dont create
+  package(:jar, :file=>_(:target, "manifest_none.jar")).with :manifest=>false
+end

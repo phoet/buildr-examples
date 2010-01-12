@@ -6,8 +6,7 @@ define "include_exclude", :version=>"1.0.0" do
   # exclude pattern based on extension-name
   package(:file=>_(:target, 'with_excludes.zip')).
     include('src/main/resources').
-      exclude('**/*.{clu,ex}') # this does not work
-      # exclude('**/*.ex') # this works
+      exclude('**/*.ex')
   
   # include any file with the provided extensions
   package(:file=>_(:target, 'with_or_pattern.zip')).
@@ -56,5 +55,8 @@ define "include_exclude", :version=>"1.0.0" do
   pkgs = packages.map{|p| "#{p}" }
   package(:file=>_(:target, 'merged_all.zip')).
     merge(pkgs)
-  
+    
+  # merge all but remove resources
+  package(:file=>_(:target, 'merged_all_without_resources.zip')).
+    merge(pkgs).exclude('resources/**')
 end
