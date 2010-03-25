@@ -3,10 +3,10 @@ repositories.remote << "http://www.ibiblio.org/maven2/"
 define "chaining", :version=>"1.0.0" do
 
   info "currently we compile to: #{compile.target}"
-  compile.into "classes"
+  compile.into _(:target, "classes")
   info "and now we compile to: #{compile.target}"
 
-  compile.from('srcs').with('org.apache.axis2:axis2:jar:1.2').into('classes').using(:target=>'1.5')
+  compile.from(_('srcs')).with('org.apache.axis2:axis2:jar:1.2').into(_(:target, "classes")).using(:target=>'1.5')
 
   compile.dependencies.each {|source| info "#{source}"}
   compile.sources.each {|source| info "#{source}"}  
