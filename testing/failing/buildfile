@@ -1,0 +1,13 @@
+repositories.remote << 'http://www.ibiblio.org/maven2/'
+
+define 'failing', :version=>"1.0" do
+  package(:jar)
+  test.using :junit
+  test.using :fail_on_failure=>false
+  test do
+    # hmmm, seems not to work!
+    info "huuuullluuu"
+    raise test.failed_tests.size
+    fail 'undo the :fail_on_failure flag' if test.failed_tests.size >= 0
+  end
+end

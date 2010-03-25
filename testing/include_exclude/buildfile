@@ -1,0 +1,9 @@
+repositories.remote << 'http://www.ibiblio.org/maven2/'
+
+define 'include_exclude', :version=>"1.0" do
+  package(:jar)
+  test.using :junit
+  test.include 'de.phoet.*'
+  test.include '*'
+  test.exclude 'FailingExampleTest'
+end

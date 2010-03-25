@@ -1,0 +1,8 @@
+<classpath>
+  <classpathentry kind="src" path="src/main/java" excluding="**/.svn/|**/CVS/"/>
+  <classpathentry kind="src" path="src/test/java" excluding="**/.svn/|**/CVS/" output="target/test/classes"/>
+  <classpathentry kind="output" path="target/classes"/>
+  <classpathentry kind="var" path="M2_REPO/junit/junit/4.4/junit-4.4.jar" sourcepath="M2_REPO/junit/junit/4.4/junit-4.4-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/jmock/jmock/1.2.0/jmock-1.2.0.jar" sourcepath="M2_REPO/jmock/jmock/1.2.0/jmock-1.2.0-sources.jar"/>
+  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+</classpath>

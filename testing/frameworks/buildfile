@@ -1,0 +1,12 @@
+repositories.remote << 'http://www.ibiblio.org/maven2/'
+
+define 'framework', :version=>"1.0" do
+  define 'junit' do
+    package(:jar)
+    test.using :junit
+  end
+  define 'testng' do
+    package(:jar)
+    test.using :testng
+  end
+end
