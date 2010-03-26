@@ -4,7 +4,7 @@ define 'failing', :version=>"1.0" do
   package(:jar)
   test.using :junit
   test.using :fail_on_failure=>false
-  test do
+  test do |test|
     # hmmm, seems not to work!
     info "huuuullluuu"
     raise test.failed_tests.size
