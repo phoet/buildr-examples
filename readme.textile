@@ -1,20 +1,22 @@
 h2. Requirements
 
-All Examples are executed with JRuby on Mac OSX Snowleopard.
+All Examples are executed with "JRuby":http://jruby.org/ on Mac OSX Snowleopard.
 
 h2. Developer Tools
 
-Download from http://developer.apple.com/tools/xcode/ and make sure to install the Unix-Support, which includes GCC and other important Tools.
+Download "Developer Tools":http://developer.apple.com/tools/xcode/ 
+and make sure to install the Unix-Support, which includes GCC and other important Tools.
 
 h2. RVM and JRuby and Nailgun
 
 "Install RVM and JRuby following this guide":http://blog.nofail.de/2010/01/xruby-on-the-mac/
 
-(Nailgun is shipped with latest versions of JRuby. "Here is a nice example":http://blog.headius.com/2009/05/jruby-nailgun-support-in-130.html)
+("Nailgun":http://martiansoftware.com/nailgun/index.html is shipped with latest versions of JRuby. 
+"Here is a nice example":http://blog.headius.com/2009/05/jruby-nailgun-support-in-130.html)
 
 h2. Gems
 
-Install buildr and ivy4r for JRuby:
+Install "buildr":http://buildr.apache.org and "ivy4r":http://github.com/klaas1979/ivy4r/ for JRuby:
 
 <pre>
 rvm use jruby
