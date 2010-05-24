@@ -1,0 +1,13 @@
+repositories.remote << 'http://www.ibiblio.org/maven2/'
+
+define 'running', :version=>"1.0" do
+  options.test = ENV['do_test'].nil?
+  options.test = :all if ENV['do_all']
+  define 'client' do
+    package(:jar)
+  end
+  define 'server' do
+    test.with project('client')
+    package(:jar)
+  end
+end
