@@ -6,7 +6,8 @@ h2. RVM and JRuby on the Mac
 
 "Install RVM and JRuby following this guide":http://blog.nofail.de/2010/01/xruby-on-the-mac/, make sure "Developer Tools":http://developer.apple.com/tools/xcode/ are installed with Unix-Support.
 
-The project comes with a ".rvmrc":http://rvm.beginrescueend.com/workflow/rvmrc/ , setting the default to JRuby 1.5.0:
+The project comes with a ".rvmrc":http://rvm.beginrescueend.com/workflow/rvmrc/, setting the default to JRuby 1.5.0 for convenience:
+
 <pre>
 cd buildr-examples
 ruby -v
