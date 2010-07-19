@@ -57,13 +57,6 @@ define 'killer-app' do
   javadoc projects
   # ... and create a javadoc.zip 
   package :javadoc
-
-  # have a look into the project-structure
-  puts projects.inspect
-  puts project('killer-app').projects.inspect
-  puts project('teh-api')
-  puts project('killer-app:teh-api').inspect
-  puts project('killer-app').project('teh-api').inspect
   
   # look into resolving paths
   # Relative to the current project
@@ -81,3 +74,9 @@ define 'killer-app' do
   # shortcut for resolving the path of src
   puts file('src')
 end
+
+# have a look into the project-structure
+puts projects.inspect
+puts project('killer-app').projects.inspect
+puts project('killer-app:teh-api').inspect
+puts project('killer-app').project('teh-api').inspect
