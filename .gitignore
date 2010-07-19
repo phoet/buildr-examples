@@ -3,3 +3,4 @@ tmp
 log
 target
 reports
+**/ivy-home/**

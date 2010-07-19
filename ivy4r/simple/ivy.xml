@@ -1,0 +1,6 @@
+<ivy-module version="2.0">
+    <info organisation="de.nofail" module="ivy4r-example"/>
+    <dependencies>
+        <dependency org="commons-lang" name="commons-lang" rev="2.0"/>
+    </dependencies>
+</ivy-module>
