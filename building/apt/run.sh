@@ -1,2 +1,3 @@
 echo "just build to use apt"
-buildr
+echo "apt example disabled, because of missing example stuff..."
+#buildr
