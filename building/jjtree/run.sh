@@ -1,2 +1,3 @@
 echo "just build to use jjtree"
-buildr
+echo "jjtree is disabled because of missing example..."
+#buildr
