@@ -8,7 +8,7 @@ AXIS2 = 'org.apache.axis2:axis2:jar:1.2'
 AXIOM = group('axiom-api', 'axiom-impl', 'axiom-dom', :under=>'org.apache.ws.commons.axiom', :version=>'1.2.4')
 # and mix them together
 AXIS_OF_WS = [AXIOM, AXIS2]
-OPENJPA = ['org.apache.openjpa:openjpa:jar:1.2.0', 'net.sourceforge.serp:serp:jar:1.12.0']
+OPENJPA = ['org.apache.openjpa:openjpa:jar:1.2.1', 'net.sourceforge.serp:serp:jar:1.12.0']
 HIBERNATE = 'hibernate:hibernate-entitymanager:jar:3.1beta1'
 
 # use ibiblio as the artifact repository
