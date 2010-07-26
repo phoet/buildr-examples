@@ -1,5 +1,5 @@
 repositories.remote << "http://www.ibiblio.org/maven2/"
-repositories.release_to = "file:///~/.m2/repository/"
+repositories.release_to = "file:///#{ENV['HOME']}/.m2/repository/"
 
 define "install_upload", :version=>"1.0.0" do
   # some remote url
