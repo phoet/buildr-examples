@@ -1,7 +1,7 @@
 define 'task' do
   # define a custom task
   task('do-this') do |task|
-    puts "you can define your own tasks like #{task}"    
+    puts "you can define your own tasks like #{task}"
   end  
 end
 
