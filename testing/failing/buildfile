@@ -5,9 +5,7 @@ define 'failing', :version=>"1.0" do
   test.using :junit
   test.using :fail_on_failure=>false
   test do |test|
-    # hmmm, seems not to work!
-    info "huuuullluuu"
-    raise test.failed_tests.size
-    fail 'undo the :fail_on_failure flag' if test.failed_tests.size >= 0
+    # extension of test task will only get called after a successful test-run
+    raise "#{test.failed_tests.size} tests failed"
   end
 end
