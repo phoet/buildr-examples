@@ -25,3 +25,9 @@ gem install buildr ivy4r
 buildr --version
 => Buildr 1.4.1 (JRuby 1.5.1)
 </pre>
+
+h2. License
+
+Using Apache license so buildr project can test/integrate/distribute this stuff.
+
+(see LICENSE file)
