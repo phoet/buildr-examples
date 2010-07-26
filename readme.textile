@@ -6,12 +6,12 @@ h2. RVM and JRuby on the Mac
 
 "Install RVM and JRuby following this guide":http://blog.nofail.de/2010/01/xruby-on-the-mac/, make sure "Developer Tools":http://developer.apple.com/tools/xcode/ are installed with Unix-Support.
 
-The project comes with a ".rvmrc":http://rvm.beginrescueend.com/workflow/rvmrc/, setting the default to JRuby 1.5.0 for convenience:
+The project comes with a ".rvmrc":http://rvm.beginrescueend.com/workflow/rvmrc/, setting the default to JRuby 1.5.1 for convenience:
 
 <pre>
 cd buildr-examples
 ruby -v
-=> jruby 1.5.0 (ruby 1.8.7 patchlevel 249) (2010-05-12 6769999) (Java HotSpot(TM) 64-Bit Server VM 1.6.0_17) [x86_64-java]
+=> jruby 1.5.1 (ruby 1.8.7 patchlevel 249) (2010-06-06 f3a3480) (Java HotSpot(TM) 64-Bit Server VM 1.6.0_20) [x86_64-java]
 </pre>
 
 h2. Gems
@@ -22,5 +22,5 @@ Install "buildr":http://buildr.apache.org for JRuby:
 gem install buildr
 
 buildr --version
-=> Buildr 1.4.0 (JRuby 1.5.0)
+=> Buildr 1.4.1 (JRuby 1.5.1)
 </pre>
