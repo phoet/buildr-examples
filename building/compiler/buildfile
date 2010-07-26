@@ -1,7 +1,7 @@
 require 'buildr/scala'
 require 'buildr/groovy'
 # configure a different groovy-version
-Buildr::Groovy::Groovyc::REQUIRES.groovy = '1.6.0'
+Buildr::Groovy::Groovyc::REQUIRES.groovy = '1.7.1'
 
 repositories.remote << "http://www.ibiblio.org/maven2/"
 
