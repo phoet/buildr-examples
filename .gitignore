@@ -2,3 +2,5 @@ html
 pkg
 *.gem
 .DS_Store
+target
+reports
