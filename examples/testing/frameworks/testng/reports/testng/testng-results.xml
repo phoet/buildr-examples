@@ -1,0 +1,14 @@
+<testng-results>
+  <reporter-output>
+  </reporter-output>
+  <suite name="framework-testng">
+    <groups>
+    </groups>
+    <test name="Command line test">
+      <class name="ExampleTest">
+        <test-method status="PASS" signature="someTest()" name="someTest" duration-ms="3" started-at="2010-07-26T18:13:45Z" finished-at="2010-07-26T18:13:45Z">
+        </test-method>
+      </class>
+    </test>
+  </suite>
+</testng-results>

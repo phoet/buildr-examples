@@ -1,0 +1,7 @@
+Testsuite: ExampleTest
+Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0,056 sec
+------------- Standard Output ---------------
+I got called!
+------------- ---------------- ---------------
+
+Testcase: someTest took 0,003 sec

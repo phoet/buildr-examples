@@ -1,6 +1,4 @@
+html
+pkg
+*.gem
 .DS_Store
-tmp
-log
-target
-reports
-**/ivy-home/**
