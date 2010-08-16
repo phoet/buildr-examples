@@ -13,7 +13,7 @@ spec = Gem::Specification.new do |s|
   s.has_rdoc = true
   s.rdoc_options = ['-a', '--inline-source', '--charset=UTF-8']
   
-  s.files = Dir.glob('examples/**/*') + %w(README.rdoc, LICENSE)
+  s.files = Dir.glob('examples/**/*') + %w(README.rdoc LICENSE)
   # s.test_files = Dir.glob('cucumber/test_*.rb')
   
   # trying not to be too restrictive...
