@@ -3,17 +3,17 @@ Given /^I go to the '(.*)' project$/ do |path|
 end
 
 When /^I call '(.*)'$/ do |command|
-  cmd = "cd #{@path} && buildr clean #{command}"
-  puts "running '#{cmd}'"
+  cmd = "export M2_REPO='#{m2_repo}' && cd #{@path} && buildr clean #{command}"
+  # puts "running '#{cmd}'"
   @result = `#{cmd}`
-  puts "result is '#{@result}'"
+  # puts "result is '#{@result}'"
 end
 
 Then /^it should not fail$/ do
-  puts "result is here '#{@result}'"
-  /.*Completed in.*/ =~ @result
+  # puts "result is here '#{@result}'"
+  @result.should match /.*Completed in.*/
 end
 
 Then /^it should retrieve the artifacts$/ do
-  m2_home_exists?
+  m2_repo_exists?.should be true
 end

@@ -3,7 +3,7 @@ repositories.release_to = "file:///#{ENV['HOME']}/.m2/repository/"
 
 define "install_upload", :version=>"1.0.0" do
   # some remote url
-  url = 'http://github.com/phoet/buildr-examples/raw/master/artifacts/install_upload/app.zip'
+  url = 'http://github.com/phoet/buildr-examples/raw/master/examples/artifacts/install_upload/app.zip'
   # download the artifact
   app_zip = download('target/app.zip'=>url)
   # unzip the artifact to specified location
