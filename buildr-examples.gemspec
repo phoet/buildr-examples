@@ -2,7 +2,7 @@
 
 spec = Gem::Specification.new do |s|
   s.name = 'buildr-examples'
-  s.version = '0.0.1'
+  s.version = '0.0.2'
 
   s.author = 'Peter Schröder'
   s.description = 'Examples using Apache Buildr.'
@@ -13,7 +13,7 @@ spec = Gem::Specification.new do |s|
   s.has_rdoc = true
   s.rdoc_options = ['-a', '--inline-source', '--charset=UTF-8']
 
-  s.files = Dir.glob('examples/**/*') + Dir.glob('features/**/*') + %w(README.rdoc LICENSE)
+  s.files = Dir.glob('examples/**/*') + Dir.glob('features/**/*') + %w(README.rdoc LICENSE rakefile.rb)
   # s.test_files = Dir.glob('cucumber/test_*.rb')
 
   s.add_dependency 'buildr', '>= 1.4.0'
