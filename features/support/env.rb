@@ -1,5 +1,3 @@
-require 'spec/expectations'
-
 require 'ftools'
 
 def m2_repo_exists?

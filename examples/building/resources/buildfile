@@ -1,4 +1,4 @@
-repositories.remote << "http://www.ibiblio.org/maven2/"
+repositories.remote << "http://repo1.maven.org/maven2"
 
 define "resources", :version=>"1.0.0" do
   # filter the resources with defined param and filters defined in profiles.yaml

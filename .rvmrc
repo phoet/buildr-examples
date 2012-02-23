@@ -1,1 +1,1 @@
-rvm jruby@buildr-examples
+rvm use jruby@buildr-examples --create
