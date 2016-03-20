@@ -3,7 +3,7 @@ Given /^I go to the '(.*)' project$/ do |path|
 end
 
 When /^I call '(.*)'$/ do |command|
-  cmd = "export M2_REPO='#{m2_repo}' && cd #{@path} && buildr clean #{command}"
+  cmd = "export M2_REPO='#{m2_repo}' && buildr clean && cd #{@path} && buildr clean #{command}"
   # puts "running '#{cmd}'"
   @result = `#{cmd}`
   # puts "result is '#{@result}'"
