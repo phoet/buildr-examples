@@ -15,7 +15,7 @@ spec = Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
 
-  s.add_dependency 'buildr', '~> 1.4.24'
+  s.add_dependency 'buildr', '~> 1.4.23'
   s.add_dependency 'ivy4r',  '~> 0.12.10'
   s.add_dependency 'ftools'
   s.add_dependency 'rspec'
